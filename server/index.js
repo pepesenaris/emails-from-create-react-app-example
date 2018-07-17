@@ -27,7 +27,7 @@ if (cluster.isMaster) {
   app.use(express.static(path.resolve(__dirname, "../react-ui/build")));
 
   // Answer API requests.
-  app.get("/api", function(req, res) {
+  app.get("/api/send_droid_email", function(req, res) {
     res.set("Content-Type", "application/json");
     const { userName, email } = req.body;
     const locals = { userName };
