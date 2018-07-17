@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const cluster = require("cluster");
 const numCPUs = require("os").cpus().length;
+const mailer = require("./mailer");
 
 const PORT = process.env.PORT || 5000;
 
@@ -28,7 +29,16 @@ if (cluster.isMaster) {
   // Answer API requests.
   app.get("/api", function(req, res) {
     res.set("Content-Type", "application/json");
-    res.send('{"message":"Hello from the custom server!"}');
+    const { userName, email } = req.body;
+    const locals = { userName };
+    const messageInfo = {
+      email,
+      fromEmail: "awesome@droids.me",
+      fromEmail: "Star Wars",
+      subject: "Checkout this awesome droids"
+    };
+    mailer.sendOne("droids", messageInfo, locals);
+    res.send('{"message":"Email sent."}');
   });
 
   // All remaining requests return the React app, so it can handle routing.
