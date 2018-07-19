@@ -34,7 +34,7 @@ if (cluster.isMaster) {
     const messageInfo = {
       email,
       fromEmail: "awesome@droids.me",
-      fromEmail: "Star Wars",
+      fromName: "Star Wars",
       subject: "Checkout this awesome droids"
     };
     mailer.sendOne("droids", messageInfo, locals);
