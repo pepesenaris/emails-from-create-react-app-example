@@ -30,13 +30,14 @@ if (cluster.isMaster) {
   app.use(express.static(path.resolve(__dirname, "../react-ui/build")));
 
   // Answer API requests.
-  app.get("/api/send_droid_email", function(req, res) {
+  app.post("/api/send_email", function(req, res) {
     res.set("Content-Type", "application/json");
+
     const { userName, email } = req.body;
     const locals = { userName };
     const messageInfo = {
       email,
-      fromEmail: "awesome@droids.me",
+      fromEmail: "info@ingsw.com",
       fromName: "Star Wars",
       subject: "Checkout this awesome droids"
     };

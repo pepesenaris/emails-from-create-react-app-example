@@ -1,18 +1,18 @@
 ## Install & Setup
 
-Install & run API server:
-
-```
-$> npm install
-
-$> npm start
-```
-
 Install & run React app:
 
 ```
 $> cd react-ui
 
+$> npm install
+
+$> npm start
+```
+
+Install & run API server:
+
+```
 $> npm install
 
 $> npm start
