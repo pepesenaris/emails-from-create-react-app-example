@@ -32,7 +32,9 @@ class App extends Component {
             onClick={() => {
               const { email } = this.state;
               if (email) {
-                sendEmail(email).then(console.log);
+                sendEmail(email).then(({ message }) => {
+                  alert(message);
+                });
               } else {
                 alert("Please add an email");
               }
