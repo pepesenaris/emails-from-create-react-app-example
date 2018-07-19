@@ -24,6 +24,8 @@ if (cluster.isMaster) {
 } else {
   const app = express();
 
+  app.use(express.json()); // Parse json in request. Available in express 4.16+
+
   // Priority serve any static files.
   app.use(express.static(path.resolve(__dirname, "../react-ui/build")));
 
