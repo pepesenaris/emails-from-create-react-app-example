@@ -23,7 +23,6 @@ class App extends Component {
         <p className="App-intro">
           <input
             onChange={ev => {
-              console.log({ ev });
               this.setState({ email: ev.target.value });
             }}
             style={{ padding: "10px", fontSize: "1em" }}
